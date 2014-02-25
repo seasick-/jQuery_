@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+//First, $.ajax returns a promise.1 Most jQuery users are used to using $.ajax by 
+//passing error and success functions in the call to create the request. But you can 
+//also treat the return value of $.ajax as a promise and reap the benefits of 
+//operating on deferreds. Second, we’ve seen that jQuery animate methods return an 
+//object with a promise method that returns you a promise. Third, when you select a 
+//set of DOM elements (e.g., $('p') to select all HTML <p> elements), the result is 
+//an object with a promise method that also returns a promise. By default it resolves 
+//when all animations on the selected elements are finished.
+
+The jQuery promise function can be used to obtain a promise against 
+the completion of actions on a selection of DOM elements. Here’s an 
+example, adapted from the .promise() documentation:
+
+
+<script>
+$('div').each(function(i){ $(this).fadeIn().fadeOut(1000 * (i + 1));
+});
+$('div').promise().done(function(){
+// All <div> animations are finished.
+});
+</script>
+
+By default, the promise method will return a promise from a deferred that 
+is resolved when all animations on an element collection have fired. You can
+also pass an argument to promise to name a different event queue that the
+promise should correspond to (the default name is “fx,” for “effects”). An
+even more advanced method is to pass an object to promise, in which case 
+jQuery will attach the usual promise methods (done, fail, etc.) to the object 
+and return it. These nondefault uses of promise are outside the scope of this 
+book. To learn more, see the .promise() documentation and hunt for examples online.
+
+
+
+</body>
+</html>
