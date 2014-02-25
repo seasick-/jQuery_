@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="jquery.js"></script>
+</head>
+<body>
+
+<h1 id="foo">Show this text</h1>
+<h2 id="click">click this</h2>
+
+
+<script>
+
+function showDiv() {
+	var dfd = $.Deferred();
+
+	//call second parameter when complete
+	$('#foo').fadeIn(1000)
+	dfd.resolve("thisz");
+
+	return dfd.promise();
+}
+
+$('#foo').hide();
+$('#click').on('click', function() {
+	showDiv().done(function(result){
+		console.log(result);
+	});
+});
+
+
+</script>
+
+
+
+</body>
+</html>
