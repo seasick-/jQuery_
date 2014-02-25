@@ -16,16 +16,16 @@ function showDiv() {
 	var dfd = $.Deferred();
 
 	//call second parameter when complete
-	$('#foo').fadeIn(1000)
-	dfd.resolve("thisz");
+	$('#foo').fadeIn(2000);
+	dfd.resolve("thisz", "another");
 
 	return dfd.promise();
 }
 
 $('#foo').hide();
 $('#click').on('click', function() {
-	showDiv().done(function(result){
-		console.log(result);
+	showDiv().done(function(result, result1){
+		console.log(result, result1);
 	});
 });
 
