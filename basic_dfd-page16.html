@@ -29,6 +29,13 @@ $('#click').on('click', function() {
 	});
 });
 
+/////another way of creating deferred
+function succeed (value) {
+	return $.Deferred(function(d){
+		d.resolve(value);
+	});
+}
+
 
 </script>
 
