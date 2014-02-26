@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<script src="jquery.js"></script>
+
+<body>
+
+<script>
+
+
+function setTime(value){
+return $.Deferred(function(dfd){
+
+			setTimeout(function(){
+				console.log("delay");
+	            dfd.resolve(value);
+			}, value);
+
+        }).promise();
+}
+
+setTime(2000).done(function(result){
+	console.log(result);
+});
+
+</script>
+
+
+</body>
+</html>
